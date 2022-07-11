@@ -62,7 +62,7 @@ switch func
         set(fh(7),'string',num2str(zone));
 
     case 4 % load ROI_PAC 
-       datatype   = 1;
+        datatype   = 1;
         name       = '*.unw';
         datastruct = load_any_data;
         zone       = datastruct.zone;
@@ -70,7 +70,8 @@ switch func
         nx         = datastruct.nx;
         ny         = datastruct.ny;
         X          = datastruct.X;
-        Y          = datastruct.Y;       docrop     = str2num(char(inputdlg(['Crop interferogram? 1=yes 0=np'])));
+        Y          = datastruct.Y;
+        docrop     = str2num(char(inputdlg(['Crop interferogram? 1=yes 0=np'])));
         if(docrop)
             plot_func=1;
             crop_faultdata
