@@ -64,7 +64,7 @@ switch func
     case 4 % load ROI_PAC 
         datatype   = 1;
         name       = '*.unw';
-        datastruct = load_any_data;
+        datastruct = loadROIPAC;
         zone       = datastruct.zone;
         data       = datastruct.data;
         nx         = datastruct.nx;
@@ -79,11 +79,11 @@ switch func
         end
         set(fh(7),'string',num2str(zone));
 
-[ny,nx]=size(savestruct.X);
-        data = savestruct.data;
-        X   = savestruct.X;
-        Y   = savestruct.Y;
-        zone= savestruct.zone;
+        %[ny,nx]=size(savestruct.X);
+        %data = savestruct.data;
+        %X   = savestruct.X;
+        %Y   = savestruct.Y;
+        %zone= savestruct.zone;
         
         set(fh(7),'string',num2str(zone));
         numdatas             = numdatas+1;
