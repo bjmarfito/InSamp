@@ -73,6 +73,8 @@ if(regexp(filename,'geo'))
     [nx,ny,x1,y2,dx,dy] = loadGeoXml([filename '.xml']);
     if regexp(filename,'merged')
         lambda= '0.055465763';
+    elseif regexp(filename,'insar')
+        lambda = '0.2424525';
     else
         lambda  = loadGenericXml([pathname '/insarProc.xml'],'radar_wavelength');
         % lambda='0.055';
