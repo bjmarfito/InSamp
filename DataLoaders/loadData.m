@@ -2,9 +2,9 @@ function datastruct = loadData(processor,datafilename,zone,limitny,azo,const_los
 
 switch processor
     case 'ROIPAC'
-        if isempty(losfilename)
-            error('Designate a geo_incidence.unw file and path');
-        end
+        %if isempty(losfilename)
+            %error('Designate a geo_incidence.unw file and path');
+        %end
         
         datastruct = loadROIPAC(datafilename,zone,limitny,azo);
         datastruct = loadLOS_ROIPAC(datastruct,losfilename,azo,const_los);
