@@ -1,3 +1,4 @@
+%Modified for MintPy outputs
 function datastruct = loadLOS_ROIPAC(datastruct,losfilename,azo,const_los)
 
 if(azo==1)
@@ -29,8 +30,9 @@ else
 
         look    = temp(1:ox,:);
         heading = temp((ox+1):(ox*2),:);
+        %Modified for MintPy outputs
         %heading = flipud(heading');
-        heading = 180-flipud(heading')
+        heading = 180-flipud(heading');
         look    = flipud(look');
     end
 
