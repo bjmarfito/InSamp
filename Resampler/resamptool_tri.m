@@ -2,7 +2,7 @@ resamp_in       % This runs resamp_in to generate the input variable and define 
 
 datastruct = loadData(processor,datafilename,zone,limitny,azo,const_los,losfilename,nx,ny,parfile); 
  if exist(corrfilename)
-    corStruct   = loadData(processor,corrfilename,zone,[],[],[],[],[],[],[]);
+    corStruct   = loadData(processor,corrfilename,zone,[],[],[],losfilename);
     cor         = corStruct.data;
     data        = datastruct.data;
     corId       = find(cor<=corThresh);
