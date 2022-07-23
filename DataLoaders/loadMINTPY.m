@@ -72,7 +72,11 @@ elseif(sum(type==[4:7])) %rmg
   [rmg,count] = fread(fid,[nx,ny*2],'real*4');
   status      = fclose(fid);
   mag         = flipud((rmg(1:nx,1:2:ny*2))');
+  %Modified for MintPy outputs
+  mag(isnan(mag))=0;
   phs         = flipud((rmg(1:nx,2:2:ny*2))');
+  %Modified for MintPy outputs
+  phs(isnan(phs))=0;
   data        = phs;
   
   if(azo)
