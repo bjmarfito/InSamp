@@ -30,7 +30,7 @@ else
 
         look    = temp(1:ox,:);
         heading = temp((ox+1):(ox*2),:);
-        heading = flipud(heading');
+        %Modified for MintPy
         heading = 180-flipud(heading');
         look    = flipud(look');
     end
