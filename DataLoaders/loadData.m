@@ -15,6 +15,7 @@ switch processor
     
     case 'GMT'
         datastruct = loadGMT(datafilename, losfilename,nx, ny, zone, limitny, azo);
+        
     case 'GAMMA'
         datastruct = loadGAMMA(datafilename, losfilename, parfile,zone);
         
