@@ -20,8 +20,8 @@ switch processor
         datastruct = loadGAMMA(datafilename, losfilename, parfile,zone);
         
     case 'MINTPY'
-        datastruct = loadMINTPY(datafilename,zone,limitny,azo);
-        datastruct = loadLOS_MINTPY(datastruct,losfilename,azo,const_los);
+        datastruct = loadMINTPYISCE(datafilename,zone,limitny,azo);
+        datastruct = loadLOS_MINTPYISCE(datastruct,losfilename,azo,const_los);
         
 end
 
