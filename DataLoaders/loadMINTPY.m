@@ -1,5 +1,5 @@
 %Modified for MintPy outputs
-function [datastruct]=load_any_data(filename,zone,limitny,azo,scaleval)
+function [datastruct]=loadMINTPY(filename,zone,limitny,azo,scaleval)
 if(exist([matlabroot '/toolbox/map/mapproj'])==7)
     goodmap=1;
 else
