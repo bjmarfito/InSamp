@@ -30,6 +30,8 @@ else
 
         look    = temp(1:ox,:);
         heading = temp((ox+1):(ox*2),:);
+        look(isnan(look))=0;
+        heading(isnan(heading))=0;
         %Modified for MintPy
         heading = 180-flipud(heading'); %Puts heading into same convention as ROI_PAC geo_incidence.unw
         look    = flipud(look');
