@@ -20,7 +20,7 @@ else
     fid          = fopen(losfilename,'r','native');
     [temp,count] = fread(fid,[ox,oy*2],'real*4');
     status       = fclose(fid);
-    %Modified for MintPy, index are changed from ROIPAC format
+    %Modified for MintPy, indices are changed from ROIPAC format
     look    = temp(1:ox,1:oy);
     heading = temp(1:ox,oy+1:oy*2);
     %Modified for MintPy, make nan = 0
