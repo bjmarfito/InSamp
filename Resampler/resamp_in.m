@@ -15,12 +15,12 @@ demfilename     = '';
 savestructname  = '170817-170910_p122.mat';                                      % Desire outputfile name
 % savexyname      = '';  %Output ascii xyfile name (or null)                  
 processor       = 'GAMMA';                                                  % Can be 'ISCE', 'MINTPY' 'ROIPAC', or 'GMT'. GMT inputs should be converted to .xyz files prior to running using grd2xyz. Compatible only with MINTPY outputs generated from ISCE
-iscestack       = 'topsStack';                                              % Specify if ISCE stack processor used is topsStack or alosStack
+iscestack       = 'topsStack';                                              % Specify if ISCE stack processor used is topsStack or alosStack. Leave empty when not using MINTPY processor
 nx              = 0;                                                        % Image width, only needs to be defined for GMT files
 ny              = 0;                                                        % Image length, only needs to be defined for GMT files
 
 corThresh       = 0.2;                                                      % Correlation/coherence threshold for masking, between 0-1
-zone            = 0;                                                    % UTM zone; zone = 0 forces data loading to check zone
+zone            = 0;                                                        % UTM zone; zone = 0 forces data loading to check zone
 azo             = 0;                                                        % 1 if using azimuth offsets instead of interferogram
 const_los       = 0;                                                        % if no los file (may be broken)
 limitny         = 0;                                                        % option in load_any_data -usually 0
