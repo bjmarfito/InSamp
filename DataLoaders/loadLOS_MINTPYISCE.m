@@ -1,5 +1,5 @@
 %Modified for MintPy outputs
-function datastruct = load_los(datastruct,losfilename,azo,const_los)
+function datastruct = load_los(datastruct,losfilename,azo)
 
 if(azo==1)
     % changed to use heading from input .rsc file EJF 2010/4/29
