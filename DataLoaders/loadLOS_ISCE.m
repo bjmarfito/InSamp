@@ -65,5 +65,3 @@ else
 end
 
 datastruct.S=S;
-    
-    
