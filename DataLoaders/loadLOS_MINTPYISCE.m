@@ -1,5 +1,5 @@
 %Modified for MintPy outputs
-function datastruct = loadLOS_MINTPYISCE(datastruct,losfilename,azo)
+function datastruct = loadLOS_MINTPYISCE(datastruct,losfilename,azo,iscestack)
 
 if(azo==1)
     % changed to use heading from input .rsc file EJF 2010/4/29
@@ -21,8 +21,15 @@ else
     [temp,count] = fread(fid,[ox,oy*2],'real*4');
     status       = fclose(fid);
     %Modified for MintPy, indices were changed from ROIPAC format
-    look    = temp(1:ox,1:oy);
-    heading = temp(1:ox,oy+1:oy*2);
+    if(iscestack='alosStack')
+        disp('using alosStack indices')
+        look    = temp(1:ox,1:2:oy*2);
+        heading = temp(1:ox,2:2:oy*2);
+    else
+        disp('defaulting to topsStack indices')
+        look    = temp(1:ox,1:oy);
+        heading = temp(1:ox,oy+1:oy*2);
+    end
     %Modified for MintPy, make nan = 0
     look(isnan(look))=0;
     heading(isnan(heading))=0;
