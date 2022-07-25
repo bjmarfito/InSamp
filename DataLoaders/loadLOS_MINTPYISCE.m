@@ -21,7 +21,7 @@ else
     [temp,count] = fread(fid,[ox,oy*2],'real*4');
     status       = fclose(fid);
     %Modified for MintPy, indices were changed from ROIPAC format
-    if(iscestack='alosStack')
+    if(iscestack=='alosStack')
         disp('using alosStack indices')
         look    = temp(1:ox,1:2:oy*2);
         heading = temp(1:ox,2:2:oy*2);
