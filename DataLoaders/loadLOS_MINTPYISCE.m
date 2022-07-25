@@ -17,29 +17,20 @@ else
     ox     = nx-extrax;
     oy     = ny-extray;
     
-    if const_los
-        disp('check directions, here look=23, heading=170');
-        const_look    = 23;
-        const_heading = 170;
-        look          = ones(ny,nx)*const_look;    % this needs to be set manually right now
-        heading       = ones(ny,nx)*const_heading;
-    else
-        fid          = fopen(losfilename,'r','native');
-        [temp,count] = fread(fid,[ox*2,oy],'real*4');
-        status       = fclose(fid);
+    fid          = fopen(losfilename,'r','native');
+    [temp,count] = fread(fid,[ox*2,oy],'real*4');
+    status       = fclose(fid);
 
-        look    = temp(1:ox,:);
-        heading = temp((ox+1):(ox*2),:);
-        look(isnan(look))=0;
-        heading(isnan(heading))=0;
-        %Modified for MintPy
-        heading = 180-flipud(heading'); %Puts heading into same convention as ROI_PAC geo_incidence.unw
-        look    = flipud(look');
-    end
-
-    squint  = 0.1;
-    heading = (heading-squint).*pi/180;
-    look    = look.*pi/180;
+    look    = temp(1:ox,:);
+    heading = temp((ox+1):(ox*2),:);
+    %Modified for MintPy, make nan = 0
+    look(isnan(look))=0;
+    heading(isnan(heading))=0;
+    heading = 180-flipud(heading'); %Puts heading into same convention as ROI_PAC geo_incidence.unw
+    look    = flipud(look');
+    
+    heading     = heading.*pi/180;
+    look        = look.*pi/180;
 
     id          = find(heading==0);
     jd          = find(heading~=0);
