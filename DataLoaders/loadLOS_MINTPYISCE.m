@@ -26,7 +26,7 @@ else
     %Modified for MintPy, make nan = 0
     look(isnan(look))=0;
     heading(isnan(heading))=0;
-    heading = flipud(heading'); %Puts heading into same convention as ROI_PAC geo_incidence.unw
+    heading = 180-flipud(heading'); %Puts heading into same convention as ROI_PAC geo_incidence.unw
     look    = flipud(look');
     
     heading     = heading.*pi/180;
