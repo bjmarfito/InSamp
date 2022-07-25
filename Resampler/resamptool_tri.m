@@ -1,6 +1,6 @@
 resamp_in       % This runs resamp_in to generate the input variable and define the data set, LOS file, and mask file.
 
-datastruct = loadData(processor,datafilename,zone,limitny,azo,const_los,losfilename,nx,ny,parfile); 
+datastruct = loadData(processor,datafilename,zone,limitny,azo,const_los,losfilename,nx,ny,parfile,iscestack); 
  if exist(corrfilename)
     corStruct   = loadData(processor,corrfilename,zone,[],[],[],losfilename);
     cor         = corStruct.data;
