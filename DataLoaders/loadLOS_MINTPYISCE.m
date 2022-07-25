@@ -18,11 +18,11 @@ else
     oy     = ny-extray;
     
     fid          = fopen(losfilename,'r','native');
-    [temp,count] = fread(fid,[ox*2,oy],'real*4');
+    [temp,count] = fread(fid,[ox,oy*2],'real*4');
     status       = fclose(fid);
 
-    look    = temp(1:ox,:);
-    heading = temp((ox+1):(ox*2),:);
+    look    = temp(1:ox,1:oy);
+    heading = temp(1:ox,oy+1:oy*2);
     %Modified for MintPy, make nan = 0
     look(isnan(look))=0;
     heading(isnan(heading))=0;
