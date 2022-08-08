@@ -33,6 +33,7 @@ if(nargin<1)
         '*.flg','Flag files (*.flg)'; ...
         '*.slp','Slope files (*.slp)'; ...
         '*.off','Offset files (*.off)'; ...
+        '*.vel','Velocity files (*.off)'; ...
         '*','All files'}, ...
         'Pick an input file');
 
@@ -47,7 +48,7 @@ pixelsize=[];
 [nx,ny,lambda,x1,y2,dx,dy,xunit]=load_rscs(filename,'WIDTH','FILE_LENGTH','WAVELENGTH','X_FIRST','Y_FIRST','X_STEP','Y_STEP','X_UNIT');
 
 n        = length(filename);
-patterns = {'.int','.slc','.amp','.cor','.unw','.hgt','.msk','.dem','.byt','.flg','.slp','.off'};
+patterns = {'.int','.slc','.amp','.cor','.unw','.hgt','.msk','.dem','.byt','.flg','.slp','.off','.vel'};
 type     = strmatch(filename(n-3:end),patterns);
 im       = sqrt(-1);
 
@@ -123,9 +124,14 @@ elseif(type==12)%off
   fid          = fopen(filename,'r','native');
   [data,count] = fread(fid,[nx,ny],'real*4');
   status       = fclose(fid);
-
+elseif(type==13)%vel
+  disp('Loading velocity file')
+  fid          = fopen(filename,'r','native');
+  [data,count] = fread(fid,[nx,ny],'real*4');
+  status       = fclose(fid);
+  
 else
-  disp('filename has bad format, must end with .int, .slc, .amp, .cor, .unw, .hgt, .msk, .dem, .byt,.flg, .slp or .off');
+  disp('filename has bad format, must end with .int, .slc, .amp, .cor, .unw, .hgt, .msk, .dem, .byt,.flg, .slp, .off or .vel');
   return
 end
 
