@@ -1,4 +1,4 @@
-datafilename    = '../p122/int_170817_170910/merged/filt_topophase.unw.geo';      %Full or relative path to the unwrapped interferogram
+datafilename    = '../p122/int_170817_170910/merged/filt_topophase.unw.geo';      %Full or relative path to the unwrapped interferogram. For MINTPY velocity file, the .vel extension should be used and it should be in ROIPAC format
 
 % ROI_PAC and ISCE LOSFILENAME
 %%losfilename     = '../p122/int_170817_170910/merged/los.rdr.geo';                 % Full or relative path to the look file, can be multiple files for GMTSAR
@@ -15,7 +15,6 @@ demfilename     = '';
 savestructname  = '170817-170910_p122.mat';                                      % Desire outputfile name
 % savexyname      = '';  %Output ascii xyfile name (or null)                  
 processor       = 'MINTPY';                                                 % Can be 'ISCE', 'MINTPY', 'ROIPAC', or 'GMT'. GMT inputs should be convertedto .xyz files prior to running using grd2xyz. Compatible only with MINTPY outputs generated from ISCE
-                                                                            % For MINTPY velocity file, the .vel extension should be used and it should be in ROIPAC format
 iscestack       = 'topsStack';                                              % Specify if ISCE stack processor used is topsStack or alosStack. Leave empty when not using MINTPY processor
 nx              = 0;                                                        % Image width, only needs to be defined for GMT files
 ny              = 0;                                                        % Image length, only needs to be defined for GMT files
