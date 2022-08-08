@@ -23,10 +23,6 @@ switch processor
         datastruct = loadMINTPYISCE(datafilename,zone,limitny,azo);
         datastruct = loadLOS_MINTPYISCE(datastruct,losfilename,azo,iscestack);
         
-    case 'MINTPYVEL'
-        datastruct = loadMINTPYVEL(datafilename,zone,limitny,azo);
-        datastruct = loadLOS_MINTPYISCE(datastruct,losfilename,azo,iscestack);
-        
 end
 
         
