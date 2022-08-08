@@ -1,4 +1,4 @@
-datafilename    = '../p122/int_170817_170910/merged/filt_topophase.unw.geo';      %Full or relative path to the unwrapped interferogram. For MINTPY velocity file, the .vel extension should be used and it should be in ROIPAC format
+datafilename    = '../p122/int_170817_170910/merged/filt_topophase.unw.geo';      %Full or relative path to the unwrapped interferogram.
 
 % ROI_PAC and ISCE LOSFILENAME
 %%losfilename     = '../p122/int_170817_170910/merged/los.rdr.geo';                 % Full or relative path to the look file, can be multiple files for GMTSAR
