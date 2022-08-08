@@ -33,7 +33,6 @@ if(nargin<1)
         '*.flg','Flag files (*.flg)'; ...
         '*.slp','Slope files (*.slp)'; ...
         '*.off','Offset files (*.off)'; ...
-        '*.vel','Velocity files (*.off)'; ...
         '*','All files'}, ...
         'Pick an input file');
 
@@ -125,15 +124,8 @@ elseif(type==12)%off
   [data,count] = fread(fid,[nx,ny],'real*4');
   status       = fclose(fid);
   
-elseif(type==13)%vel
-  disp('Loading velocity file')
-  fid          = fopen(filename,'r','native');
-  [phs,count] = fread(fid,[nx,ny],'real*4');
-  data        = -phs*lambda/(4*pi); 
-  status       = fclose(fid);
-  
 else
-  disp('filename has bad format, must end with .int, .slc, .amp, .cor, .unw, .hgt, .msk, .dem, .byt,.flg, .slp, .off or .vel');
+  disp('filename has bad format, must end with .int, .slc, .amp, .cor, .unw, .hgt, .msk, .dem, .byt,.flg, .slp, or .off');
   return
 end
 
