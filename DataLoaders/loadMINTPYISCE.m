@@ -124,10 +124,12 @@ elseif(type==12)%off
   fid          = fopen(filename,'r','native');
   [data,count] = fread(fid,[nx,ny],'real*4');
   status       = fclose(fid);
+  
 elseif(type==13)%vel
   disp('Loading velocity file')
   fid          = fopen(filename,'r','native');
-  [data,count] = fread(fid,[nx,ny],'real*4');
+  [phs,count] = fread(fid,[nx,ny],'real*4');
+  data        = -phs*lambda/(4*pi); 
   status       = fclose(fid);
   
 else
