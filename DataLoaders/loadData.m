@@ -1,4 +1,4 @@
-function datastruct = loadData(processor,datafilename,zone,limitny,azo,const_los,losfilename,nx,ny,parfile,iscestack);
+function datastruct = loadData(processor,datafilename,zone,limitny,azo,const_los,losfilename,nx,ny,parfile,iscestack)
 
 switch processor
     case 'ROIPAC'
