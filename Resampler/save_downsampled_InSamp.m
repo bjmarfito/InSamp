@@ -1,6 +1,7 @@
 %Transform InSAMP data from UTM to lon latm and dump data, and enu vectors into a text file
 %with a format lon lat east west up dlos
-load()
+function [] = save_downsampled_InSamp(matFilename)
+load(matFilename)
 X = [savestruct.data.X];
 Y = [savestruct.data.Y];
 data = [savestruct.data.data];
@@ -21,3 +22,4 @@ enuVector = transpose(enuVector) .* -1;
 data = transpose(data);
 vectormatrix = [lon lat enuVector data];
 writematrix(vectormatrix, 'S1_asc_downsampled.txt', 'Delimiter','space')
+end
