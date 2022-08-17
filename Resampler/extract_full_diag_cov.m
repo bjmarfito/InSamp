@@ -18,7 +18,7 @@ S1_des_size = S1_des_size(1);
 A2_des_size = size(A2_des_cov);
 A2_des_size = A2_des_size(1);
 
-%Create full covariance matrix
+%Create covariance matrix
 
 S1_asc_des__A2_des_cov =  [S1_asc_cov zeros(S1_asc_size, S1_des_size) zeros(S1_asc_size, A2_des_size); zeros(S1_des_size, S1_asc_size) S1_des_cov zeros(S1_des_size, A2_des_size); zeros(A2_des_size, S1_asc_size) zeros(A2_des_size,S1_des_size) A2_des_cov];
 save S1_asc_des__A2_des_cov S1_asc_des__A2_des_cov -v7.3
