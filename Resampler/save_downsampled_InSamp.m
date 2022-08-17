@@ -2,6 +2,8 @@
 %with a format lon lat east west up dlos
 function [] = save_downsampled_InSamp(matFilename)
 load(matFilename)
+matFilename = erase(matFilename,".mat");
+outputFilename = strcat(matFilename,".txt");
 X = [savestruct.data.X];
 Y = [savestruct.data.Y];
 data = [savestruct.data.data];
@@ -21,5 +23,5 @@ enuVector = [savestruct.data.S];
 enuVector = transpose(enuVector) .* -1;
 data = transpose(data);
 vectormatrix = [lon lat enuVector data];
-writematrix(vectormatrix, 'S1_asc_downsampled.txt', 'Delimiter','space')
+writematrix(vectormatrix, outputFilename, 'Delimiter','space')
 end
