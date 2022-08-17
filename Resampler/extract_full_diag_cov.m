@@ -24,6 +24,7 @@ S1_asc_des__A2_des_cov =  [S1_asc_cov zeros(S1_asc_size, S1_des_size) zeros(S1_a
 save S1_asc_des__A2_des_cov S1_asc_des__A2_des_cov -v7.3
 
 %Extract the diagonal values of the covariance matrix
-S1_asc_des__A2_des_diagcov = transpose(S1_asc_des__A2_des_cov);
+S1_asc_des__A2_des_diagcov = diag(S1_asc_des__A2_des_cov);
+S1_asc_des__A2_des_diagcov = transpose(S1_asc_des__A2_des_diagcov);
 S1_asc_des__A2_des_diagcov = diag(S1_asc_des__A2_des_diagcov);
 save S1_asc_des__A2_des_diagcov S1_asc_des__A2_des_diagcov -v7.3
