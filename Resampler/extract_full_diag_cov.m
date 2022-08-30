@@ -27,4 +27,4 @@ save S1_asc_des_A2_des_cov S1_asc_des_A2_des_cov -v7.3
 S1_asc_des_A2_des_diagcov = diag(S1_asc_des_A2_des_cov);
 S1_asc_des_A2_des_diagcov = transpose(S1_asc_des_A2_des_diagcov);
 S1_asc_des_A2_des_diagcov = diag(S1_asc_des_A2_des_diagcov);
-save S1_asc_des__2_des_diagcov S1_asc_des_A2_des_diagcov -v7.3
+save S1_asc_des_2_des_diagcov S1_asc_des_A2_des_diagcov -v7.3
