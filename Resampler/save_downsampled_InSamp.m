@@ -11,7 +11,7 @@ data = [savestruct.data.data];
 [m, n] = size(X);
 lon = ones(m,n);
 lat = ones(m,n);
-utmZ = savestruct.zone(1:2);
+utmZ = str2num(savestruct.zone(1:2));
 
 for a = m:n
     [lon(m,a) lat(m,a)]= utm2ll(X(m,a), Y(m,a),utmZ, 2);
