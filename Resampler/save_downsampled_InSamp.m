@@ -14,7 +14,7 @@ lat = ones(m,n);
 utmZ = savestruct.zone(1:2);
 
 for a = m:n
-    [lon(m,a) lat(m,a)]= utm2ll(X(m,a), Y(m,a),42, 2);
+    [lon(m,a) lat(m,a)]= utm2ll(X(m,a), Y(m,a),utmZ, 2);
 end
 
 lon = transpose(lon);
