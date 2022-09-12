@@ -94,7 +94,8 @@ else
     end
     nx = str2num(nx); ny = str2num(ny); lambda =str2num(lambda);
 end
-
+wvlVal = strcat('Wavelength (m): ',num2str(lambda));
+disp(wvlVal)
 % lambda  = getWavelength(sensor);
 
 if(limitny)
