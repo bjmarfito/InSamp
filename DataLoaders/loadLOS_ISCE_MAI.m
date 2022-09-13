@@ -47,7 +47,7 @@ else
     look(id)    = mean(look(jd));
     
     S1          = [sin(look];
-    S2          = [cos(heading)];
+    S2          = [-sin(heading)];
     disp('Making the up-down unit vector zero for MAI')
     S3          = [cos(look).*0];
     
