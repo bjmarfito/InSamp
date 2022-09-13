@@ -46,9 +46,9 @@ else
     heading(id) = mean(heading(jd));
     look(id)    = mean(look(jd));
     
-    S1          = [sin(heading).*sin(look)];
-    S2          = [cos(heading).*sin(look)];
-    S3          = [-cos(look)];
+    S1          = [sin(look];
+    S2          = [cos(heading)];
+    S3          = 0;
     
     S1          = blkdiag(S1,zeros(extray,extrax));
     S2          = blkdiag(S2,zeros(extray,extrax));
