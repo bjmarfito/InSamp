@@ -48,7 +48,8 @@ else
     
     S1          = [sin(look];
     S2          = [cos(heading)];
-    S3          = 0;
+    disp('Making the up-down unit vector zero for MAI')
+    S3          = [cos(look).*0];
     
     S1          = blkdiag(S1,zeros(extray,extrax));
     S2          = blkdiag(S2,zeros(extray,extrax));
