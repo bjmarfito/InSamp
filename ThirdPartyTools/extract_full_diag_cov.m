@@ -1,6 +1,8 @@
 %Extract full-covariance and covariance matrix from InSamp
 
 %load all data and put them into matrices
+
+
 load('S1_asc_fault_control_dip90_width20km_result.mat')
 S1_asc_cov = savestruct.covstruct.cov;
 load('S1_des_fault_control_dip90_width20km_result.mat')
