@@ -21,6 +21,9 @@ lon = transpose(lon);
 lat = transpose(lat);
 enuVector = [savestruct.data.S];
 enuVector = transpose(enuVector) .* -1;
+if enuVector(:,3) == -0
+    enuVector(:,3) = 0;
+end
 data = transpose(data);
 vectormatrix = [lon lat enuVector data];
 writematrix(vectormatrix, outputFilename, 'Delimiter','space')
