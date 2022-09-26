@@ -107,7 +107,6 @@ switch type
         disp('Loading rmg file')
         disp(filename)
         fid             = fopen(filename,'r','native');
-        %%''single',''float'',''float32'',''double'',''float64'','
         [rmg,count]     = fread(fid,[nx,ny*2],'float32');
         [nx,ny]         = size(rmg);
         ny              = ny/2;
