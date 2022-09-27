@@ -34,7 +34,7 @@ else
     
     look        = tmp(1:ox,:);
     heading     = tmp((ox+1):(ox*2),:);
-    heading     = 180-flipud(heading'); %Puts heading into same convention as ROI_PAC geo_incidence.unw
+    heading     = 270-flipud(heading'); %Puts heading into same convention as ROI_PAC geo_incidence.unw
     
     look        = flipud(look');
     
@@ -46,8 +46,8 @@ else
     heading(id) = mean(heading(jd));
     look(id)    = mean(look(jd));
     
-    S1          = [sin(look)];
-    S2          = [sin(heading)];
+    S1          = [sin(heading)];
+    S2          = [cos(heading)];
     disp('Making the up-down unit vector zero for MAI')
     S3          = [cos(look).*0];
     
