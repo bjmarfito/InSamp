@@ -34,7 +34,7 @@ else
     
     look        = tmp(1:ox,:);
     heading     = tmp((ox+1):(ox*2),:);
-    heading     = 270-flipud(heading'); %Puts heading into same convention as ROI_PAC geo_incidence.unw
+    heading     = 90-flipud(heading'); %Puts heading into same convention as ROI_PAC geo_incidence.unw
     
     look        = flipud(look');
     
