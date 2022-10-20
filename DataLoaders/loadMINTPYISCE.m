@@ -89,6 +89,7 @@ elseif(sum(type==[4:7])) %rmg
           else
               data  = -phs*lambda/(4*pi); 
               data  = data;
+              disp(lambda)
 %             data = data;
           end
       end
