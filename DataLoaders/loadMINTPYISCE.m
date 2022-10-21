@@ -98,12 +98,12 @@ switch type
     case 'rmg'
         disp('Loading rmg file')
         fid             = fopen(filename,'r','native');
-        [rmg,count]     = fread(fid,[nx,ny*2],'real*4');
+        [rmg,count]     = fread(fid,[nx,ny],'real*4');
         [nx,ny]         = size(rmg);
         ny              = ny/2;
         status          = fclose(fid);
-        mag             = flipud((rmg(1:nx,1:2:ny*2))');
-        phs             = flipud((rmg(1:nx,2:2:ny*2))');
+        %mag             = flipud((rmg(1:nx,1:2:ny))');
+        phs             = flipud((rmg(1:nx,2:2:ny))');
         data            = phs;
         if(regexp(filename,'unw'));
             disp("Conversion is not being made from radians to meters")
