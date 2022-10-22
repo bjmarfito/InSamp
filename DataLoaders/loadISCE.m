@@ -78,7 +78,6 @@ if(regexp(filename,'geo'))
     else
         lambda  = loadGenericXml([pathname '/insarProc.xml'],'radar_wavelength');
         % lambda='0.055';
-        %lambda = '1';
     end
     
     nx = str2num(nx); ny = str2num(ny); x1 = str2num(x1); y2 = str2num(y2); dx = str2num(dx); dy = str2num(dy);lambda=str2num(lambda);
