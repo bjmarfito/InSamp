@@ -69,23 +69,34 @@ end
 im       = sqrt(-1);
 
 if(regexp(filename,'geo'))
+    %     [nx,ny,lambda,x1,y2,dx,dy] = load_xml([pathname '/insarProc.xml'],'GEO_WIDTH','GEO_LENGTH','radar_wavelength','maximum_longitude','maximum_latitude','LONGITUDE_SPACING','LATITUDE_SPACING');
+    %     [nx,ny,x1,y2,dx,dy] = load_xml([pathname '/' filename '.xml'],
     [nx,ny,x1,y2,dx,dy] = loadGeoXml([filename '.xml']);
-    lambda = '1';
+    %if regexp(filename,'merged')
+        %lambda= '0.055465763';
+    %elseif regexp(filename,'insar')
+        lambda = '0.2424525';
+    %else
+        %lambda  = loadGenericXml([pathname '/insarProc.xml'],'radar_wavelength');
+        % lambda='0.055';
+    %end
+    
     nx = str2num(nx); ny = str2num(ny); x1 = str2num(x1); y2 = str2num(y2); dx = str2num(dx); dy = str2num(dy);lambda=str2num(lambda);
 else
-    if regexp(filename,'merged')
+    %if regexp(filename,'merged')
+        
         %lambda = '0.05465763';
-        [nx, ny] = loadISCEinfo([pathname(1:end-7) '/isce.log'],'isce.mroipac.filter - DEBUG - width','isce.mroipac.filter - DEBUG - length');
-        labda = '1';
-    else
+        %[nx, ny] = loadISCEinfo([pathname(1:end-7) '/isce.log'],'isce.mroipac.filter - DEBUG - width','isce.mroipac.filter - DEBUG - length');
+        
+    %else
         
         %     [nx,ny,lambda] = loadGenericXml([pathname '/insarProc.xml'],'WIDTH','LENGTH','RADAR_WAVELENGTH');
-        [nx, ny,lambda] = loadISCEinfo([pathname '/isce.log'],'runCorrect.inputs.width','runCorrect.inputs.length','runCorrect.inputs.radar_wavelength');
+        %[nx, ny,lambda] = loadISCEinfo([pathname '/isce.log'],'runCorrect.inputs.width','runCorrect.inputs.length','runCorrect.inputs.radar_wavelength');
     end
     nx = str2num(nx); ny = str2num(ny); lambda =str2num(lambda);
 end
 lambda = '1';
-disp("Making wavelength to 1 meter for this file")
+disp("Making wavelength to 1 meter for this files")
 wvlVal = strcat('Wavelength (m): ',num2str(lambda));
 disp(wvlVal)
 % lambda  = getWavelength(sensor);
@@ -106,8 +117,7 @@ switch type
         phs             = flipud((rmg(1:nx,2:2:ny*2))');
         data            = phs;
         if(regexp(filename,'unw'));
-            disp("Conversion is not being made from radians to meters")
-            data            = phs;
+            data            = -phs*lambda/(4*pi);
         end
     case 'cpx'
         
