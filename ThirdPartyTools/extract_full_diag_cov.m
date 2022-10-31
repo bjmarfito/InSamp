@@ -1,4 +1,4 @@
-%Extract full-covariance and covariance matrix from InSamp
+%Extract full covariance and diagonal values of the covariance matrix from InSamp
 
 %load all data and put them into matrices
 clear
