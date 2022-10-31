@@ -7,13 +7,13 @@ close all
 dataSets={'S1_asc_subset.mat', 'S1_des_subset.mat'};
 covIndex = [];
 sizeCell = 0;
-sizeCellA=1;
+sizeCellA = 1;
 for i =1:length(dataSets)
     tmp = load(dataSets{i});
     covIndex = [covIndex {tmp.savestruct.covstruct.cov}];
     sizeCell = sizeCell + size(covIndex{i},2);
     covData(sizeCellA:sizeCell, sizeCellA:sizeCell) = covIndex{i};
-    sizeCellA=sizeCell + 1;
+    sizeCellA = sizeCell + 1;
 end
 
 
