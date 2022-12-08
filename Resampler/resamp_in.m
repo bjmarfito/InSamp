@@ -6,7 +6,7 @@ losfilename     = '../p122/int_170817_170910/merged/los.rdr.geo';               
 
 % GAMMA LOSFILENAME and param file
 %%losfilename     = {'phi.r4','theta.r4'}                                           % Full or relative path to phi.r4 and theta.r4 files. MUST BE IN THIS ORDER
-parfile          = ''                                                   % InSAR params files with length and width, location information. Can be left as is if not processing GAMMA
+parfile          = '';                                                          % InSAR params files with length and width, location information. Can be left as is if not processing GAMMA
 
 
 faultfilename   = {'fault.mat'};                                              % Full or relative path of the fault file generated with faultMaker
