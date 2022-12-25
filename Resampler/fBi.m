@@ -117,11 +117,11 @@ elseif fault_type == 2;  	%%%%% Dip Slip  [eqn. (26)]
 
 else fault_type == 3;		%%%%% Tensile [eqn. (27)]
 
-  f1 = q.^2 .* ORReta - I3 .* sinDelta2;
+  f1 = q.^2 .* ORReta - I3 .* sind2;
   f2 = (-dtil .* q) .* ORRsig ...
-     - sinDelta .* ((sig .* q) .* ORReta - theta) - I1 .* sinDelta2;
+     - sinDelta .* ((sig .* q) .* ORReta - theta) - I1 .* sind2;
   f3 = (ytil .* q) .* ORRsig ...
-     + cosDelta .* ((sig .* q) .* ORReta - theta) - I5 .* sinDelta2;
+     + cosDelta .* ((sig .* q) .* ORReta - theta) - I5 .* sind2;
  % f3=-f3;%fix by rlohman?
 end
 
