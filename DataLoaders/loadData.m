@@ -23,11 +23,17 @@ switch processor
         datastruct = loadMINTPYISCE(datafilename,zone,limitny,azo);
         datastruct = loadLOS_MINTPYISCE(datastruct,losfilename,azo,iscestack);
 
+    case 'TimeSeries'
+        %This expects time series files in geocoded, geotiff format, in
+        %units of mm/yr.
+        %LOSFILENAME should be two files, look.tif and heading.tif:
+        %{look.tif, heading.tif'}
+        datastruct = loadTimeSeries(datafilename,losfilename,dt, zone);
+
     %Need to convert them to meters, positive means towards the satellite, negative means away from the satellite
     case 'ISCE_MAI'
         datastruct = loadISCE_MAI(datafilename, zone, limitny, azo);
-        datastruct = loadLOS_ISCE_MAI(datastruct,losfilename,azo);
-        
+        datastruct = loadLOS_ISCE_MAI(datastruct,losfilename,azo);       
 end
 
         
