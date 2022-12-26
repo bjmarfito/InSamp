@@ -35,5 +35,3 @@ switch processor
         datastruct = loadISCE_MAI(datafilename, zone, limitny, azo);
         datastruct = loadLOS_ISCE_MAI(datastruct,losfilename,azo);       
 end
-
-        
