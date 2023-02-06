@@ -94,8 +94,8 @@ else
     end
     nx = str2num(nx); ny = str2num(ny); lambda =str2num(lambda);
 end
-wvlVal = strcat('Wavelength (m): ',num2str(lambda));
-fprintf('%s %f\n', 'Wavelength(m):',wvlVal)
+
+fprintf('%s\n', 'IMPORTANT!! This code assumes that the MAI is already in meters so the wavelength is set to 1. )
 % lambda  = getWavelength(sensor);
 
 if(limitny)

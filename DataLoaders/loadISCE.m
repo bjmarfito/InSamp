@@ -94,8 +94,8 @@ else
     end
     nx = str2num(nx); ny = str2num(ny); lambda =str2num(lambda);
 end
-wvlVal = num2str(lambda);
-fprintf('%s %f\n', 'Wavelength(m):',wvlVal)
+
+fprintf('%s %f\n', 'Wavelength(m):',lambda)
 % lambda  = getWavelength(sensor);
 
 if(limitny)
