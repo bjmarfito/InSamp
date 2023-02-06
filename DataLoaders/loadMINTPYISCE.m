@@ -89,8 +89,8 @@ elseif(sum(type==[4:7])) %rmg
           else
               data  = -phs*lambda/(4*pi); 
               data  = data;
-              disp(lambda)
-%             data = data;
+              wvlVal = num2str(lambda));
+              fprintf('%s %f\n', 'Wavelength(m):',wvlVal)
           end
       end
   end
