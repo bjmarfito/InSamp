@@ -22,6 +22,7 @@ ny              = 0;                                                        % Im
 corThresh       = 0.2;                                                      % Correlation/coherence threshold for masking, between 0-1
 zone            = 0;                                                        % UTM zone; zone = 0 forces data loading to check zone
 azo             = 0;                                                        % 1 if using azimuth offsets instead of interferogram
+rgo             = 0;                                                        % 1 if using range offsets instead of interferogram
 const_los       = 0;                                                        % if no los file (may be broken)
 limitny         = 0;                                                        % option in load_any_data -usually 0
 minhgt          = 200;                                                      % hgt cutoff to use in hgt scaling (only if demfile is set)
