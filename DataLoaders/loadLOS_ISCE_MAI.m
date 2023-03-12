@@ -16,7 +16,7 @@ squint = 0.1;
 if(azo==1)
     heading = datastruct.heading+squint;
     S       = zeros(datastruct.ny, datastruct.nx,3);
-    S(:,:,1)= sind(look);
+    S(:,:,1)= sind(heading);
     S(:,:,2)= cosd(heading);
     S(:,:,3)= 0;
 else
