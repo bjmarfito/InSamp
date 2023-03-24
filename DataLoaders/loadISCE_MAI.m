@@ -95,7 +95,7 @@ else
     nx = str2num(nx); ny = str2num(ny); lambda =str2num(lambda);
 end
 
-fprintf('%s\n', 'IMPORTANT!! This code assumes that the MAI is already in meters so the wavelength is set to 1. )
+fprintf('%s\n', 'IMPORTANT!! This code assumes that the MAI is already in meters so the wavelength is set to 1.')
 % lambda  = getWavelength(sensor);
 
 if(limitny)
@@ -193,4 +193,3 @@ disp(['setting ' num2str(length(badid)) ' pts with phs=' num2str(baddata) ' to N
 datastruct=struct('data',data,'mag',mag,'phs',phs,'X',X,'Y',Y,'pixelsize',pixelsize, ...
     'zone',zone,'lambda',lambda,'nx',nx,'ny',ny,'filename',filename, ...
     'scale',scale','extrax',extrax,'extray',extray);
-
