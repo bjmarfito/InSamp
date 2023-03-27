@@ -1,4 +1,4 @@
-function [f1,f2,f3] = fBi(sig, eta, parvec, p, q);
+function [f1,f2,f3] = fBi(sig, eta, parvec, p, q)
 
 %%%%% Pull out parameters form parvec    %%%%%
 %%%%% parvec = [d, a, delta, fault_type] %%%%%
