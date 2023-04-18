@@ -14,9 +14,11 @@ for i =1:length(dataSets)
     tmp = load(dataSets{i});
     covIndex = [covIndex {tmp.savestruct.covstruct.cov}];
     sizeCell = sizeCell + size(covIndex{i},2);
-    covData(sizeCellA:sizeCell, sizeCellA:sizeCell) = covIndex{i};
+    covData1(sizeCellA:sizeCell, sizeCellA:sizeCell) = covIndex{i};
     sizeCellA = sizeCell + 1;
 end
+covData = chol(covData1');
+
 
 
 %%Obsolete code%%%%%%%%%%%%%%%%%%%%
