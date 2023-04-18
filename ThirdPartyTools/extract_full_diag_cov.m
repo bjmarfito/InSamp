@@ -17,7 +17,8 @@ for i =1:length(dataSets)
     covData1(sizeCellA:sizeCell, sizeCellA:sizeCell) = covIndex{i};
     sizeCellA = sizeCell + 1;
 end
-covData = chol(covData1');
+covData = chol(covData1);
+covData = transpose(covData);
 
 
 
