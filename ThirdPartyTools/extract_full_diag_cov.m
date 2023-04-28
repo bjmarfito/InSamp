@@ -1,12 +1,10 @@
 %Extract full covariance and diagonal values of the covariance matrix from InSamp
-function [] = extract_full_diag_cov(fileNames)
+%Author: Bryan Marfito
+
 %load all data and put them into matrices
-%clear
-%close all
-
+function [] = extract_full_diag_cov(fileNames)
 dataSets = fileNames;
-
-%dataSets={'S1_des.mat', 'A2_asc_SM_downsampled.mat','A2_des_SS_result.mat'};
+%Extracts the covariance matrix from InSamp
 covIndex = [];
 sizeCell = 0;
 sizeCellA = 1;
