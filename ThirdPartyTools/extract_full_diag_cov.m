@@ -17,37 +17,7 @@ for i =1:length(dataSets)
     covData1(sizeCellA:sizeCell, sizeCellA:sizeCell) = covIndex{i};
     sizeCellA = sizeCell + 1;
 end
-covData = chol(covData1);
-covData = transpose(covData);
-
-
-
-%%Obsolete code%%%%%%%%%%%%%%%%%%%%
-%load('S1_asc_stepfunc_6month.mat')
-%S1_asc_cov = savestruct.covstruct.cov;
-%load('S1_des_stepfunc_1year.mat')
-%S1_des_cov = savestruct.covstruct.cov;
-%load('A2_SM_des_downsampled.mat')
-%A2_SM_des_cov = savestruct.covstruct.cov;
-%load('A2_SS_des_downsampled.mat')
-%A2_SS_des_cov = savestruct.covstruct.cov;
-
-%extract size of each matrices
-%S1_asc_size = size(S1_asc_cov);
-%S1_asc_size = S1_asc_size(1);
-
-%S1_des_size = size(S1_des_cov);
-%S1_des_size = S1_des_size(1);
-
-%A2_SM_des_size = size(A2_SM_des_cov);
-%A2_SM_des_size = A2_SM_des_size(1);
-
-%A2_SS_des_size=size(A2_SS_des_cov);
-%A2_SS_des_size = A2_SS_des_size(1);
-
-%Create covariance matrix
-%S1_asc_des_A2_SM_SS_des_cov =  [S1_asc_cov zeros(S1_asc_size, S1_des_size) zeros(S1_asc_size, A2_SM_des_size) zeros(S1_asc_size, A2_SS_des_size); zeros(S1_des_size, S1_asc_size) S1_des_cov zeros(S1_des_size, A2_SM_des_size) zeros(S1_des_size, A2_SS_des_size); zeros(A2_SM_des_size, S1_asc_size) zeros(A2_SM_des_size,S1_des_size) A2_SM_des_cov zeros(A2_SM_des_size, A2_SS_des_size); zeros(A2_SS_des_size, S1_asc_size) zeros(A2_SS_des_size,S1_des_size) zeros(A2_SS_des_size, A2_SM_des_size) A2_SS_des];
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+covData = chol(covData1,'lower');
 
 save covMatrix covData -v7.3
 writematrix(covData, "covMatrix.txt", 'Delimiter','space')
