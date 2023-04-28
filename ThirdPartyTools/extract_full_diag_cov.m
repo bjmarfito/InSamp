@@ -1,11 +1,11 @@
-%Extract full covariance and diagonal values of the covariance matrix from InSamp
-%Author: Bryan Marfito
+% Extract full covariance and diagonal values of the covariance matrix from InSamp
+% Author: Bryan Marfito
 
-%load all data and put them into matrices
+% Load all data and put them into matrices
 function [] = extract_full_diag_cov(fileNames)
 dataSets = fileNames;
 
-%Extracts the covariance matrix from InSamp
+% Extracts the covariance matrix from InSamp
 covIndex = [];
 sizeCell = 0;
 sizeCellA = 1;
