@@ -21,7 +21,7 @@ covData = chol(covData,'lower');
 save covMatrix covData -v7.3
 writematrix(covData, "covMatrix.txt", 'Delimiter','space')
 
-%Extract the diagonal values of the covariance matrix
+% Extract the diagonal values of the covariance matrix
 diagcov = diag(covData);
 diagcov = transpose(diagcov);
 diagcov = diag(diagcov);
