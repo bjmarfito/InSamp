@@ -4,6 +4,7 @@
 %load all data and put them into matrices
 function [] = extract_full_diag_cov(fileNames)
 dataSets = fileNames;
+
 %Extracts the covariance matrix from InSamp
 covIndex = [];
 sizeCell = 0;
