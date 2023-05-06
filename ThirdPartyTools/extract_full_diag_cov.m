@@ -18,12 +18,16 @@ for i =1:length(dataSets)
 end
 covData = chol(covData,'lower');
 
-save covMatrix covData -v7.3
-writematrix(covData, "covMatrix.txt", 'Delimiter','space')
+% Enable the two lines of code below if gCent is to be used
+%save covMatrix covData -v7.3
+%writematrix(covData, "covMatrix.txt", 'Delimiter','space')
 
-% Extract the diagonal values of the covariance matrix
-diagcov = diag(covData);
-diagcov = transpose(diagcov);
-diagcov = diag(diagcov);
-save diagCovMatrix  diagcov -v7.3
-writematrix(diagcov, "diagCovMatrix.txt", 'Delimiter','space')
+% Extract the diagonal values
+covData = diag(covData);
+covData = transpose(covData);
+covMatrix = diag(covData);
+save covMatrix covMatrix -v7.3
+writematrix(covMatrix, "covMatrix.txt", 'Delimiter','space')
+
+clear
+end
