@@ -2,7 +2,7 @@
 % Author: Bryan Marfito
 
 % Load all data and put them into matrices
-function [] = extract_full_diag_cov(fileNames)
+function [] = extract_cov(fileNames)
 clc
 dataSets = fileNames;
 
