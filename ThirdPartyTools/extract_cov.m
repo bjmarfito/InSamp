@@ -1,4 +1,4 @@
-% Extract full covariance and diagonal values of the covariance matrix from InSamp
+% Extract covariance matrix from InSamp
 % Author: Bryan Marfito
 
 % Load all data and put them into matrices
