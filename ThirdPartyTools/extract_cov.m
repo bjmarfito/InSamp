@@ -18,11 +18,6 @@ for i =1:length(dataSets)
 end
 covData = chol(covData,'lower');
 
-% Obsolete code
-%save covMatrix covData -v7.3
-%writematrix(covData, "covMatrix.txt", 'Delimiter','space')
-%%
-
 % Extract the diagonal values
 covData = diag(covData);
 covData = transpose(covData);
