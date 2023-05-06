@@ -3,6 +3,7 @@
 
 % Load all data and put them into matrices
 function [] = extract_full_diag_cov(fileNames)
+clc
 dataSets = fileNames;
 
 % Extracts the covariance matrix from InSamp
