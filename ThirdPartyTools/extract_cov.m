@@ -19,7 +19,7 @@ for i =1:length(dataSets)
 end
 covData = chol(covData,'lower');
 
-% Extract the diagonal values
+% Extract the diagonal values since the data is the result of random process.
 covData = diag(covData);
 covData = transpose(covData);
 covMatrix = diag(covData);
