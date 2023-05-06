@@ -18,9 +18,10 @@ for i =1:length(dataSets)
 end
 covData = chol(covData,'lower');
 
-% Enable the two lines of code below if gCent is to be used
+% Obsolete code
 %save covMatrix covData -v7.3
 %writematrix(covData, "covMatrix.txt", 'Delimiter','space')
+%%
 
 % Extract the diagonal values
 covData = diag(covData);
