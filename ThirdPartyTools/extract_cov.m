@@ -28,6 +28,7 @@ covData = chol(covData,'lower');
 covData = diag(covData);
 covData = transpose(covData);
 covMatrix = diag(covData);
+clear covData
 save covMatrix covMatrix -v7.3
 writematrix(covMatrix, "covMatrix.txt", 'Delimiter','space')
 
