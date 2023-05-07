@@ -1,7 +1,6 @@
 % Extract covariance matrix from InSamp
 % Author: Bryan Marfito
 
-% Load all data and put them into matrices
 function [] = extract_cov(fileNames)
 
 %% Usage: extract_cov(InSamp file outputs)
