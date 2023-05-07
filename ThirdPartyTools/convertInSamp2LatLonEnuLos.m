@@ -1,6 +1,6 @@
 %Transform InSAMP data from UTM to lon lat and dump data, and enu vectors into a text file
 %with a format lon lat east west up dlos
-function [] = save_downsampled_InSamp(matFilename)
+function [] = convertInSamp2LatLonEnuLos(matFilename)
 load(matFilename)
 matFilename = erase(matFilename,".mat");
 outputFilename = strcat(matFilename,".txt");
