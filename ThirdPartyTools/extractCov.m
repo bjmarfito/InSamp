@@ -1,7 +1,7 @@
 % Extract covariance matrix from InSamp
 % Author: Bryan Marfito
 
-function [] = extract_cov(fileNames)
+function [] = extractCov(fileNames)
 
 %% Usage: extract_cov(InSamp file outputs)
 %% Example: extract_cov({'S1_des.mat', {'A2_asc.mat'})
