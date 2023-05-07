@@ -19,7 +19,7 @@ for i =1:length(dataSets)
 end
 covData = chol(covData,'lower');
 
-% Extract the diagonal values since the data is the result of random process.
+% Extract the diagonal values since the data noise is assumed to be a result of random process.
 % Reference: Environmental Data Analysis by Menke
 covData = diag(covData);
 covData = transpose(covData);
