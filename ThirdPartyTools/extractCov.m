@@ -3,8 +3,8 @@
 
 function [] = extractCov(fileNames)
 
-%% Usage: extract_cov(InSamp file outputs)
-%% Example: extract_cov({'S1_des.mat', {'A2_asc.mat'})
+%% Usage: extractCov(InSamp file outputs)
+%% Example: extractCov({'S1_des.mat', {'A2_asc.mat'})
 
 clc
 dataSets = fileNames;
