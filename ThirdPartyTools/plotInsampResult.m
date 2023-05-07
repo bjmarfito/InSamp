@@ -1,5 +1,5 @@
 %Plot sampled data location points
-function [] = plot_insamp_result(matFilename)
+function [] = plotInsampResult(matFilename)
 load(matFilename)
 data = [savestruct.data.data];
 X = [savestruct.data.X];
