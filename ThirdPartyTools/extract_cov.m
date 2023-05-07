@@ -3,6 +3,10 @@
 
 % Load all data and put them into matrices
 function [] = extract_cov(fileNames)
+
+%% Usage: extract_cov(InSamp file outputs)
+%% Example: extract_cov({'S1_des.mat', {'A2_asc.mat'})
+
 clc
 dataSets = fileNames;
 
