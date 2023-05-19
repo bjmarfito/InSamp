@@ -4,7 +4,7 @@
 function [] = extractCov(fileNames)
 
 %% Usage: extractCov(InSamp file outputs)
-%% Example: extractCov({'S1_des.mat', {'A2_asc.mat'})
+%% Example: extractCov({'S1_des.mat', 'A2_asc.mat'})
 
 clc
 dataSets = fileNames;
@@ -20,9 +20,11 @@ for i =1:length(dataSets)
     covData(sizeCellA:sizeCell, sizeCellA:sizeCell) = covIndex{i};
     sizeCellA = sizeCell + 1;
 end
+
+% Factorize the covariance matrix using Cholesky decomposition for efficient Monte Carlo sampling
 covData = chol(covData,'lower');
 
-% Extract the diagonal values since the data noise is assumed to be a result of random process.
+% Extract the diagonal values since the data variances are unrelated and noise is assumed to be a result of random process.
 % Reference: Environmental Data Analysis by Menke
 covData = diag(covData);
 covData = transpose(covData);
