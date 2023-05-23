@@ -17,21 +17,15 @@ for i =1:length(dataSets)
     tmp = load(dataSets{i});
     covIndex = [covIndex {tmp.savestruct.covstruct.cov}];
     sizeCell = sizeCell + size(covIndex{i},2);
-    covData(sizeCellA:sizeCell, sizeCellA:sizeCell) = covIndex{i};
+    covMatrix(sizeCellA:sizeCell, sizeCellA:sizeCell) = covIndex{i};
     sizeCellA = sizeCell + 1;
 end
 
-% Factorize the covariance matrix using Cholesky decomposition for efficient Monte Carlo sampling
-covData = chol(covData,'lower');
-
-% Extract the diagonal values since the data variances are unrelated and noise is assumed to be a result of random process.
-% Reference: Environmental Data Analysis by Menke
-covData = diag(covData);
-covData = transpose(covData);
-covMatrix = diag(covData);
-clear covData
 save covMatrix covMatrix -v7.3
 writematrix(covMatrix, "covMatrix.txt", 'Delimiter','space')
+
+
+disp("Apply Cholensky decomposition and get the diagonal values of the lower triangular matrix during modelling")
 
 clear
 end
