@@ -7,6 +7,7 @@ function [] = extractCov(fileNames)
 %% Example: extractCov({'S1_des.mat', 'A2_asc.mat'})
 
 clc
+close all
 dataSets = fileNames;
 
 % Extracts the covariance matrix from InSamp
@@ -24,8 +25,7 @@ end
 save covMatrix covMatrix -v7.3
 writematrix(covMatrix, "covMatrix.txt", 'Delimiter','space')
 
-
-disp("Apply Cholesky decomposition of the lower triangular matrix and get the diagonal values during modelling")
+disp("Apply Cholesky decomposition and extract the lower triangular matrix factor. Then, get the diagonal values during modelling")
 
 clear
 end
