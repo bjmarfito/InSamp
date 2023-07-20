@@ -33,5 +33,7 @@ switch processor
     %Need to convert them to meters, positive means towards the satellite, negative means away from the satellite
     case 'ISCE_MAI'
         datastruct = loadISCE_MAI(datafilename, zone, limitny, azo);
-        datastruct = loadLOS_ISCE_MAI(datastruct,losfilename,azo);       
+        datastruct = loadLOS_ISCE_MAI(datastruct,losfilename,azo);
+end
+
 end
