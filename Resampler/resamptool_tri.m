@@ -108,3 +108,6 @@ if(savestructname)
 
 end
 
+%Added to free memory
+clear
+
