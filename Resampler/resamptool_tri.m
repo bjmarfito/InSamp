@@ -18,8 +18,7 @@ end
 if perturbrednoise == 'y'
     [X, Y] = size(datastruct.data);
     disp("Adding red noise")
-    redNoiseAdd = rednoise(X,Y,1.33);
-    redNoiseAdd = round(redNoiseAdd)./10;
+    redNoiseAdd = rednoise(X,Y,1.33) ./ 100;
     datastruct.data = datastruct.data + redNoiseAdd;
     save redNoiseAdd redNoiseAdd
     clear redNoiseAdd
