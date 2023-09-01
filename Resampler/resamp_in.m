@@ -37,5 +37,3 @@ smoo            = 0.25;                                                     % Sm
 
 
 getcov          = 2;                                                        % 1 is just diag, 2 estimates full covariance matrix
-
-perturbrednoise = 'n';                                                      % 'y' if perturbing the data with red noise
