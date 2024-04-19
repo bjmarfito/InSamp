@@ -27,5 +27,4 @@ writematrix(covMatrix, "covMatrix.txt", 'Delimiter','space')
 
 disp("Apply Cholesky decomposition and extract the lower triangular matrix factor. Then, get the diagonal values during modelling")
 
-clear
 end
