@@ -25,6 +25,7 @@ end
 save covMatrix covMatrix -v7.3
 writematrix(covMatrix, "covMatrix.txt", 'Delimiter','space')
 
-disp("Apply Cholesky decomposition and extract the lower triangular matrix factor. Then, get the diagonal values during modelling")
+disp("Apply Cholesky decomposition and extract the lower triangular matrix factor.")
+disp("Then, get the diagonal values during modelling.")
 
 end
