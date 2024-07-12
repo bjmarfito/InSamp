@@ -23,7 +23,7 @@ if(utmorll==1) %convert utm to ll
     
     mstruct.zone = zone;
     mstruct      = defaultm(mstruct);
-    [y,x]        = minvtran(mstruct,X,Y);
+    [y,x]        = projinv(mstruct,X,Y);
   end
   
 elseif(utmorll==2) %convert ll to utm
@@ -33,7 +33,7 @@ elseif(utmorll==2) %convert ll to utm
     
   mstruct.zone = zone;
   mstruct      = defaultm(mstruct);
-  [x,y]        = mfwdtran(mstruct,Y,X);
+  [x,y]        = projfwd(mstruct,Y,X);
     
   else
     disp('utmorll must be 1 (for utm2ll) or 2 (for ll2utm)')
