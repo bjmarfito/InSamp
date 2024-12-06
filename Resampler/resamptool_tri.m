@@ -1,3 +1,5 @@
+close all       % saves memory by closing open figures
+clear           % clears all variables from memory
 resamp_in       % This runs resamp_in to generate the input variable and define the data set, LOS file, and mask file.
 
 datastruct = loadData(processor,datafilename,zone,limitny,azo,const_los,losfilename,nx,ny,parfile,iscestack); 
