@@ -123,6 +123,7 @@ elseif(type==12)%off
   fid          = fopen(filename,'r','native');
   [data,count] = fread(fid,[nx,ny],'real*4');
   status       = fclose(fid);
+  data = flipud(data');
   
 else
   disp('filename has bad format, must end with .int, .slc, .amp, .cor, .unw, .hgt, .msk, .dem, .byt,.flg, .slp, or .off');
