@@ -9,19 +9,19 @@ X = [savestruct.data.X];
 Y = [savestruct.data.Y];
 trix = [savestruct.data.trix];
 triy = [savestruct.data.triy];
+covarianceMat = [savestruct.covstruct.cov];
 k = numel(data);
 
-minData =min(data);
-maxData =max(data);
-cTicks = minData:0.5:maxData;
+maxData = max(abs(data));
 
-figure
+
+figure(1)
 scatter(X,Y,24,data,'filled')
 axis image; shading flat
 c = colorbar;
 c.Label.String = 'LOS displacement (m)';
 c.Location = 'southoutside';
-c.Ticks = cTicks;
+% c.Ticks = cTicks;
 title(['No. of points = ' num2str(k)])
 colormapSlip = 'vik.mat';
     checkCrameri = exist(colormapSlip,"file");
@@ -31,16 +31,17 @@ colormapSlip = 'vik.mat';
     else
         colormap(jet);
     end
-% clim([-1. 1.]);
+clim([-maxData maxData]);
+ax = gca;
+ax.FontSize = 14;
 
 %Plot triangular data
-figure
+figure(2)
 patch(trix,triy,data)
 axis image; shading flat
 c = colorbar;
 c.Label.String = 'LOS displacement (m)';
 c.Location = 'southoutside';
-c.Ticks = cTicks;
 title(['No. of points = ' num2str(k)])
 
 colormapSlip = 'vik.mat';
@@ -51,7 +52,58 @@ colormapSlip = 'vik.mat';
     else
         colormap(jet);
     end
+clim([-maxData maxData]);
+ax = gca;
+ax.FontSize = 14;
 
-% clim([-1. 1.]);
+
+
+%Plot covariance matrix
+figure(3)
+imagesc(covarianceMat)
+axis image; shading flat
+c = colorbar;
+c.Label.String = 'm^2';
+c.Location = 'southoutside';
+title(['No. of points = ' num2str(k)])
+
+colormapSlip = 'lajolla.mat';
+    checkCrameri = exist(colormapSlip,"file");
+    if checkCrameri ~=0
+        load(colormapSlip)
+        colormap(lajolla);
+    else
+        colormap(jet);
+    end
+
+maxCovariance = max(covarianceMat(:));
+clim([0 maxCovariance]);
+ax = gca;
+ax.FontSize = 14;
+
+
+%Plot covariance matrix
+figure(4)
+unitCovMat = chol(covarianceMat,'lower');
+imagesc(unitCovMat)
+axis image; shading flat
+c = colorbar;
+c.Label.String = 'm^2';
+c.Location = 'southoutside';
+title(['No. of points = ' num2str(k)])
+
+colormapSlip = 'lajolla.mat';
+    checkCrameri = exist(colormapSlip,"file");
+    if checkCrameri ~=0
+        load(colormapSlip)
+        colormap(lajolla);
+    else
+        colormap(jet);
+    end
+
+maxUnitCovMat = max(unitCovMat(:));
+clim([0 maxUnitCovMat]);
+ax = gca;
+ax.FontSize = 14;
 
 end
