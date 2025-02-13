@@ -54,7 +54,7 @@ else
     badid   = find(S1(:)==0);
     S1(badid) = S1(1); % set to average in load_los
     S2(badid) = S2(1);
-    S3(badid) = S2(1);
+    S3(badid) = S3(1);
 
     S(:,:,1)  = S1;
     S(:,:,2)  = S2;

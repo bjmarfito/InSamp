@@ -34,6 +34,10 @@ switch processor
     case 'ISCE_MAI'
         datastruct = loadISCE_MAI(datafilename, zone, limitny, azo);
         datastruct = loadLOS_ISCE_MAI(datastruct,losfilename,azo);
+
+    case 'SYNTHETIC'
+        datastruct = loadSynthetic(datafilename, zone, azo);
+        datastruct = loadLOS_Synthetic(datastruct,losfilename);
 end
 
 end
