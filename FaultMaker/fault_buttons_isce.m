@@ -229,12 +229,28 @@ switch func
             b=1:avg:nx;
             hold off
             pcolor(X(a,b),Y(a,b),data(a,b));
+            climMax = max(abs(data(:)));
+            clim([-climMax climMax])
+            colormapSlip = 'vik.mat';
+            checkCrameri = exist(colormapSlip,"file");
+            if checkCrameri ~=0
+                load(colormapSlip)
+                colormap(vik)
+            end
             hold on
         elseif(datatype==2)
              a=1:avg:ny;
             b=1:avg:nx;
             hold off
             pcolor(X(b,a),Y(b,a),data(b,a));
+            climMax = max(abs(data(:)));
+            clim([-climMax climMax])
+            colormapSlip = 'vik.mat';
+            checkCrameri = exist(colormapSlip,"file");
+            if checkCrameri ~=0
+                load(colormapSlip)
+                colormap(vik)
+            end
             hold on
         else
             disp('no data yet')

@@ -78,6 +78,14 @@ while(done~=1)
         plot(x,y,'r.')
         patch([resampstruct.trix],[resampstruct.triy],nan,'edgecolor','m')
         title([num2str(np) ' out of ' num2str(size(DT,1)) ' tris contain data']);
+        dataClim = max(abs(data(:)));
+        clim([-dataClim dataClim])
+        colormapSlip = 'vik.mat';
+        checkCrameri = exist(colormapSlip,"file");
+        if checkCrameri ~=0
+            load(colormapSlip)
+            colormap(vik)
+        end
     end
     disp(['num triangles = ' num2str(np) ' minres = ' num2str(min([resampstruct.scale]))])
     disp([num2str(abs(np-oldnp)) ' new triangles, ' num2str((abs(oldnp-np)/np)*100) '% change'])
