@@ -9,7 +9,7 @@ X = [savestruct.data.X];
 Y = [savestruct.data.Y];
 trix = [savestruct.data.trix];
 triy = [savestruct.data.triy];
-covarianceMat = [savestruct.covstruct.cov];
+covMatrix = [savestruct.covstruct.cov];
 k = numel(data);
 
 maxData = max(abs(data));
@@ -60,12 +60,11 @@ ax.FontSize = 14;
 
 %Plot covariance matrix
 figure(3)
-imagesc(covarianceMat)
+imagesc(covMatrix)
 axis image; shading flat
 c = colorbar;
 c.Label.String = 'm^2';
 c.Location = 'southoutside';
-title(['No. of points = ' num2str(k)])
 
 colormapSlip = 'lajolla.mat';
     checkCrameri = exist(colormapSlip,"file");
@@ -76,7 +75,7 @@ colormapSlip = 'lajolla.mat';
         colormap(jet);
     end
 
-maxCovariance = max(covarianceMat(:));
+maxCovariance = max(covMatrix(:));
 clim([0 maxCovariance]);
 ax = gca;
 ax.FontSize = 14;
@@ -84,13 +83,12 @@ ax.FontSize = 14;
 
 %Plot covariance matrix
 figure(4)
-unitCovMat = chol(covarianceMat,'lower');
+unitCovMat = chol(covMatrix,'lower');
 imagesc(unitCovMat)
 axis image; shading flat
 c = colorbar;
 c.Label.String = 'm^2';
 c.Location = 'southoutside';
-title(['No. of points = ' num2str(k)])
 
 colormapSlip = 'lajolla.mat';
     checkCrameri = exist(colormapSlip,"file");
