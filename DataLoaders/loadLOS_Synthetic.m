@@ -9,7 +9,7 @@ function datastruct = loadLOS_Synthetic(datastruct,losfilename)
     S2 = dataValue{4};
     S3 = dataValue{5};
 
-    fid = fopen('param.txt', 'r');
+    fid = fopen('syntheticDataParam.txt', 'r');
     paramValue = textscan(fid, '%f %f %f %f', 'CommentStyle', '#');
     fclose(fid);
     paramValue =  cell2mat(paramValue);
