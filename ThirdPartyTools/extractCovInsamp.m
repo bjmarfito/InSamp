@@ -25,7 +25,7 @@ function extractCovInsamp(fileNames)
         sizeCellA = sizeCell + 1;
     end
 
-    save covMatrix covMatrix -v7.3
+    % save covMatrix covMatrix -v7.3
     writematrix(covMatrix, "covMatrix.txt", 'Delimiter','space')
 
     disp("Apply Cholesky decomposition and extract the lower triangular matrix factor.")
