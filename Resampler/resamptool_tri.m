@@ -52,8 +52,11 @@ disp('Calculating data covariance')
 covstruct=struct('cov',[],'Var',Var,'tx',[],'ty',[],'Vxy',[],'allnxy',[],'els',[]);
 covstruct2=covstruct;
 
-if processor == 'BOI'
+if strcmp(processor,'BOI')
     boi = 1;
+
+else
+    boi = 0;
 end
 
 if(azo) || (boi)
