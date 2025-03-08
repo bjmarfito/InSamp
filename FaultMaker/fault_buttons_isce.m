@@ -289,6 +289,23 @@ switch func
         end
         set(fh(7),'string',num2str(zone));
 
+    case 20
+        datatype   = 1;
+        name       = '*.unw';
+        datastruct = loadMINTPYBOI;
+        zone       = datastruct.zone;
+        data       = datastruct.data;
+        nx         = datastruct.nx;
+        ny         = datastruct.ny;
+        X          = datastruct.X;
+        Y          = datastruct.Y;
+        docrop     = str2num(char(inputdlg(['Crop interferogram? 1=yes 0=np'])));
+        if(docrop)
+            plot_func=1;
+            crop_faultdata
+            func=18;
+        end
+        set(fh(7),'string',num2str(zone));
 end
 
 if (onfault>0)

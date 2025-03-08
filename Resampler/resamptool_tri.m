@@ -52,9 +52,12 @@ disp('Calculating data covariance')
 covstruct=struct('cov',[],'Var',Var,'tx',[],'ty',[],'Vxy',[],'allnxy',[],'els',[]);
 covstruct2=covstruct;
 
+if processor == 'BOI'
+    boi = 1;
+end
 
-if(azo)
-    disp('just using Var of non-NaN points - Azimuth offsets should have no spatial correlation');
+if(azo) || (boi)
+    disp('just using Var of non-NaN points - Azimuth offsets and BOI should have no spatial correlation');
     getcov=1;
 end
 switch getcov

@@ -38,6 +38,10 @@ switch processor
     case 'SYNTHETIC'
         datastruct = loadSynthetic(datafilename, zone, azo);
         datastruct = loadLOS_Synthetic(datastruct,losfilename);
-end
+
+    case 'BOI'
+        datastruct = loadMINTPYBOI(datafilename,zone,limitny,azo);
+        datastruct = loadLOS_MINTPYBOI(datastruct,losfilename,azo,iscestack);
+    end
 
 end
