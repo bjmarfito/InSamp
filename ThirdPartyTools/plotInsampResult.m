@@ -35,7 +35,7 @@ clim([-maxData maxData]);
 ax = gca;
 ax.FontSize = 14;
 
-%Plot triangular data
+% Plot triangular data
 figure(2)
 patch(trix,triy,data)
 axis image; shading flat
@@ -58,13 +58,14 @@ ax.FontSize = 14;
 
 
 
-%Plot covariance matrix
+% Plot covariance matrix
 figure(3)
 imagesc(covMatrix)
 axis image; shading flat
 c = colorbar;
 c.Label.String = 'm^2';
 c.Location = 'southoutside';
+title('Covariance matrix')
 
 colormapSlip = 'lajolla.mat';
     checkCrameri = exist(colormapSlip,"file");
@@ -81,14 +82,15 @@ ax = gca;
 ax.FontSize = 14;
 
 
-%Plot covariance matrix
+% Plot unit covariance matrix
 figure(4)
 unitCovMat = chol(covMatrix,'lower');
 imagesc(unitCovMat)
 axis image; shading flat
 c = colorbar;
-c.Label.String = 'm^2';
+c.Label.String = 'm';
 c.Location = 'southoutside';
+title('Unit covariance matrix')
 
 colormapSlip = 'lajolla.mat';
     checkCrameri = exist(colormapSlip,"file");
