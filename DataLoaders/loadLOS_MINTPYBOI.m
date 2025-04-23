@@ -1,5 +1,5 @@
 %Modified for MintPy outputs
-function datastruct = loadLOS_MINTPYISCE(datastruct,losfilename,azo,iscestack)
+function datastruct = loadLOS_MINTPYBOI(datastruct,losfilename,azo,iscestack)
 
 if(azo==1)
     % changed to use heading from input .rsc file EJF 2010/4/29
@@ -24,6 +24,9 @@ else
     %Modified for MintPy, indices were changed from ROIPAC format
     heading = temp(1:ox,2:2:oy*2);
     look    = temp(1:ox,1:2:oy*2);
+
+    save look look -v7.3
+    save heading heading -v7.3
 
     %Modified for MintPy, make nan = 0
     look(isnan(look))=0;
