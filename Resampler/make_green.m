@@ -1,7 +1,16 @@
-function [green,greenX,greenY,greenZ]=make_green(patchstruct,datastruct)
+function [green,greenX,greenY,greenZ]=make_green(varargin)
 %ss +=left-lateral
 %ds +=thrust
 
+patchstruct =  varargin{1};
+datastruct = varargin{2};
+greensFunc = varargin{3};
+daysAfterEQ = varargin{4};
+
+if nargin < 3
+    daysAfterEQ = 0; % Default value if not provided
+    greensFunc = "okada"; % Default Green's function type
+end
 
 x    = [];
 y    = [];
@@ -10,7 +19,7 @@ S    = [];
 numfiles = length(datastruct);
 Npatch   = length(patchstruct);
 
-for i=1:numfiles;
+for i=1:numfiles
   x    = [x; datastruct(i).X];
   y    = [y; datastruct(i).Y];
   S    = [S datastruct(i).S];
@@ -37,7 +46,12 @@ for j=1:2
    strike = patchstruct(i).strike;
    dip    = patchstruct(i).dip;
 
-   [ux,uy,uz]  = calc_okada(1,x-x0,y-y0,.25,dip,z0,L,W,j,strike);
+   if greensFunc == "viscoelastic"
+    [ux,uy,uz]  = calc_ps(1,x,y,.25,dip,z0,L,W,j,strike, x0,y0, daysAfterEQ);
+   else
+    [ux,uy,uz]  = calc_okada(1,x-x0,y-y0,.25,dip,z0,L,W,j,strike);
+
+    end
 
    green(:,id) = [ux.*S(:,1)+uy.*S(:,2)+uz.*S(:,3)];
  

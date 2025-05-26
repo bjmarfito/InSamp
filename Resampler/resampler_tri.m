@@ -1,4 +1,4 @@
-function [resampstruct,res,rhgt,smoothwidths] = resampler_tri(datastruct,patchstruct,faultstruct)
+function [resampstruct,res,rhgt,smoothwidths] = resampler_tri(datastruct,patchstruct,faultstruct, greensFunc, daysAfterEQ)
 resamp_in
 
 splitid = 0;
@@ -93,7 +93,7 @@ while(done~=1)
         done=1;
     else
         plotflag         = zeros(1,np);
-        green            = make_green(patchstruct,resampstruct);
+        green            = make_green(patchstruct,resampstruct,greensFunc, daysAfterEQ);
         quickinvert
         disp('calculating new widths')
         smoothwidths     = getsmoothwidths_tri(N,resampstruct,plotflag);
@@ -144,7 +144,7 @@ for i=1:np
     id=find(SI==good(i));
     resampstruct(i).trid=id;
 end
-green            = make_green(patchstruct,resampstruct);
+green            = make_green(patchstruct,resampstruct,greensFunc, daysAfterEQ);
 quickinvert
    
 disp('Calculating residual')

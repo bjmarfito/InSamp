@@ -61,4 +61,5 @@ for i=1:length(U)
   % rotate horizontals back to the orig. coordinate system
   ux= ux-uyj*sins+uxj*coss;  
   uy= uy+uxj*sins+uyj*coss;
+
 end

@@ -44,7 +44,15 @@ xfaultsurf               = xfault(:,id);
 yfaultsurf               = yfault(:,id);
 
 disp('Beginning resampling')
-[resampstruct,res,rhgt] = resampler_tri(datastruct,patchstruct,faultstruct);
+
+if  exist("greensFunc", 'var') == 1
+    if strcmp(greensFunc, "viscoelastic")
+        disp('Using viscoelastic Greens function')
+        [resampstruct,res,rhgt] = resampler_tri(datastruct,patchstruct,faultstruct, greensFunc,daysAfterEQ);
+    end
+else
+    [resampstruct,res,rhgt] = resampler_tri(datastruct,patchstruct,faultstruct, "elastic", 0);
+end
 Var                = var(res(isfinite(res)));
 datastd            = Var./sqrt([resampstruct.count]);
 
