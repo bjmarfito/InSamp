@@ -32,6 +32,9 @@ function datastruct = loadLOS_MINTPYISCE(datastruct,losfilename,azo,iscestack)
         look    = temp(1:ox,1:oy);
         heading = temp(1:ox,oy+1:oy*2);
     end
+
+
+
     save look look -v7.3
     save heading heading -v7.3
 
@@ -40,12 +43,17 @@ function datastruct = loadLOS_MINTPYISCE(datastruct,losfilename,azo,iscestack)
     heading(isnan(heading))=0;
 
     if (azo==1)
-        heading = 90-flipud(heading');
+        heading = 90-flipud(heading);
     else
-        heading = 180-flipud(heading'); %Puts heading into same convention as ROI_PAC geo_incidence.unw
+        heading = 180-flipud(heading); %Puts heading into same convention as ROI_PAC geo_incidence.unw
     end
 
-    look    = flipud(look');
+
+
+    look    = flipud(look);
+
+    heading = imrotate(heading,90); %Rotate to match ROI_PAC convention
+    look    = imrotate(look,90);    %Rotate to match ROI_PAC convention
     
     heading     = heading.*pi/180;
     look        = look.*pi/180;
@@ -82,6 +90,16 @@ function datastruct = loadLOS_MINTPYISCE(datastruct,losfilename,azo,iscestack)
     S(:,:,3)  = S3;
 
     datastruct.S=S;
+
+    figure
+    subplot(2,1,1)
+    imagesc(look)
+    title('Look Angle')
+    colorbar
+    subplot(2,1,2)
+    imagesc(heading)
+    title('Heading')
+    colorbar
     
 end
 
