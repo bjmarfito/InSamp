@@ -33,10 +33,22 @@ function datastruct = loadLOS_MINTPYISCE(datastruct,losfilename,azo,iscestack)
         heading = temp(1:ox,oy+1:oy*2);
     end
 
+    lookView = imrotate(flipud(look), 90);
+    headingView = imrotate(flipud(heading), 90);
+    figure
+    subplot(1,2,1)
+    imagesc(lookView)
+    title('Look Angle')
+    colorbar
+    subplot(1,2,2)
+    imagesc(headingView)
+    title('Heading')
+    colorbar
 
+    save look lookView -v7.3
+    save heading headingView -v7.3
 
-    save look look -v7.3
-    save heading heading -v7.3
+    clear lookView headingView
 
  %Modified for MintPy, make nan = 0
     look(isnan(look))=0;
@@ -90,16 +102,6 @@ function datastruct = loadLOS_MINTPYISCE(datastruct,losfilename,azo,iscestack)
     S(:,:,3)  = S3;
 
     datastruct.S=S;
-
-    figure
-    subplot(2,1,1)
-    imagesc(look)
-    title('Look Angle')
-    colorbar
-    subplot(2,1,2)
-    imagesc(heading)
-    title('Heading')
-    colorbar
     
 end
 
