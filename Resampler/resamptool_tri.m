@@ -122,6 +122,8 @@ if(savestructname)
     end
     save(savestructname,'savestruct');
     disp('Saved data structure')
+    disp('Plot the results!')
+    disp('Check unit vectors!')
 
 end
 
