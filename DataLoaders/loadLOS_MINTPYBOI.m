@@ -24,6 +24,16 @@ else
     %Modified for MintPy, indices were changed from ROIPAC format
     heading = temp(1:ox,2:2:oy*2);
     look    = temp(1:ox,1:2:oy*2);
+    
+    figure
+    subplot(1,2,1)
+    imagesc(look)
+    title('Look Angle')
+    colorbar
+    subplot(1,2,2)
+    imagesc(heading)
+    title('Heading')
+    colorbar
 
     save look look -v7.3
     save heading heading -v7.3

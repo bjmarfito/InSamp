@@ -33,19 +33,6 @@ function datastruct = loadLOS_MINTPYISCE(datastruct,losfilename,azo,iscestack)
         heading = temp(1:ox,oy+1:oy*2);
     end
 
-    % Tested for topsStack index
-    orbitDirection = load_rscs(losfilename,'ORBIT_DIRECTION');
-    if orbitDirection == "ASCENDING"
-        look = imrotate(flipud(look), -90);
-        heading = imrotate(flipud(heading), -90);
-
-    elseif orbitDirection == "DESCENDING"
-        look = imrotate(flipud(look), 90);
-        heading = imrotate(flipud(heading), 90);
-    else
-        error('Orbit direction not recognized. Please check the .rsc file for ORBIT_DIRECTION.')
-    end
-
     figure
     subplot(1,2,1)
     imagesc(look)
@@ -65,11 +52,12 @@ function datastruct = loadLOS_MINTPYISCE(datastruct,losfilename,azo,iscestack)
     heading(isnan(heading))=0;
 
     if (azo==1)
-        heading = 90-heading;
+        heading = 90-(heading');
     else
-        heading = 180-heading; %Puts heading into same convention as ROI_PAC geo_incidence.unw
+        heading = 180-(heading'); %Puts heading into same convention as ROI_PAC geo_incidence.unw
     end
 
+    look = flipud(look'); %Flip look angle to match ROI_PAC convention
 
     heading     = heading.*pi/180;
     look        = look.*pi/180;
