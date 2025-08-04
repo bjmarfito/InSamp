@@ -106,8 +106,6 @@ if(demfilename)
     end
 end
 
-
-
 if(savestructname)
     savestruct = struct('name',[],'data',[],'np',[],'covstruct',[],'zone',[]);
     savestruct.name       = datafilename;
