@@ -52,9 +52,9 @@ function datastruct = loadLOS_MINTPYISCE(datastruct,losfilename,azo,iscestack)
     heading(isnan(heading))=0;
 
     if (azo==1)
-        heading = 90-(heading');
+        heading = 90-flipud(heading');
     else
-        heading = 180-(heading'); %Puts heading into same convention as ROI_PAC geo_incidence.unw
+        heading = 180-flipud(heading'); %Puts heading into same convention as ROI_PAC geo_incidence.unw
     end
 
     look = flipud(look'); %Flip look angle to match ROI_PAC convention
