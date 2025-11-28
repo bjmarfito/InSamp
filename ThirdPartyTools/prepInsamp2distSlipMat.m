@@ -1,6 +1,7 @@
 function prepInsamp2distSlipMat(matFilename)
 
 % Convert InSamp downsampled data to a format that can be read by the distSlipMatCode
+% Author: Bryan Marfito, EOS-RS
 
     for k = 1:length(matFilename)
         disp(strcat("Processing file: ", matFilename{k}))
