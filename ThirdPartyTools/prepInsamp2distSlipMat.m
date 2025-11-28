@@ -25,7 +25,7 @@ end
 
 % Used utm2ll from InSamp since the results are different from the utm2ll in the original code
 for a = m:n
-    [lon(m,a), lat(m,a)]= utm2ll_v2(X(m,a), Y(m,a),utmZ, 2);
+    [lon(m,a), lat(m,a)]= utm2ll(X(m,a), Y(m,a),utmZ, 2);
 end
 
 lon = transpose(lon);
